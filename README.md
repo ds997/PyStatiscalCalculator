@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.com/ds997/PyStatisticalCalculator.svg?token=LogVxqzVJkyBNsiAfq33&branch=master)](https://travis-ci.com/ds997/PyStatisticalCalculator)
+
+
 # PyStatiscalCalculator
 
 
