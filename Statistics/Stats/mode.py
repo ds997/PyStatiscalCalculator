@@ -1,6 +1,6 @@
 import statistics
 
 
-def mode(list):
-    c = statistics.mode(list)
+def mode(population_list):
+    c = statistics.mode(population_list)
     return c
