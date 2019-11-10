@@ -1,8 +1,10 @@
 from Statistics.Stats.mean import mean
-def Variance(list):
-    sum = 0
-    my_mean = mean(list)
-    for i in list:
-        sum += ((i - my_mean) ** 2)
-    my_variance = sum/len(list)
-    return my_variance
+
+
+def Variance(population_list):
+    result = 0
+    result_mean = mean(population_list)
+    for i in population_list:
+        result += ((i - result_mean) ** 2)
+    result_variance = result / len(population_list)
+    return result_variance
