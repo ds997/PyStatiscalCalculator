@@ -22,7 +22,23 @@ class MyTestCase(unittest.TestCase):
             result = float(row['List1'])
             list1.append(result)
 
-        self.Statistics.mean_(list1)
+        self.Statistics.mean(list1)
+        self.assertEqual(round(self.Statistics.result), round(result_test))
+
+    def test_median(self):
+        test_data = CsvReader('Tests/Data/population_list.csv').data
+        test_result = CsvReader('Tests/Data/result_data.csv').data
+
+        for column in test_result:
+            result_test = float(column['Median'])
+
+        list1 = []
+
+        for row in test_data:
+            result = float(row['List1'])
+            list1.append(result)
+
+        self.Statistics.median(list1)
         self.assertEqual(round(self.Statistics.result), round(result_test))
 
 
