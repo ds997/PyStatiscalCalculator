@@ -1,7 +1,7 @@
 from Statistics.Stats.mean import mean
 
 
-def Variance(population_list):
+def variance(population_list):
     result = 0
     result_mean = mean(population_list)
     for i in population_list:

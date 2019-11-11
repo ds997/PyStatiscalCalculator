@@ -12,50 +12,51 @@ class MyTestCase(unittest.TestCase):
 
     def test_mean(self):
         test_data = CsvReader('Tests/Data/population_list.csv').data
-        test_result = CsvReader('Tests/Data/result_data.csv').data
-        result_test = 0
-        for column in test_result:
-            result_test = float(column['Mean'])
+        result_data = CsvReader('Tests/Data/result_data.csv').data
 
-        list1 = []
+        for column in result_data:
+            mean_value = float(column['Mean'])
+
+        data = []
+
         for row in test_data:
             result = float(row['List1'])
-            list1.append(result)
+            data.append(result)
 
-        self.Statistics.mean(list1)
-        self.assertEqual(round(self.Statistics.result), round(result_test))
+        self.Statistics.mean(data)
+        self.assertEqual(round(self.Statistics.result), round(mean_value))
 
     def test_median(self):
         test_data = CsvReader('Tests/Data/population_list.csv').data
-        test_result = CsvReader('Tests/Data/result_data.csv').data
+        result_data = CsvReader('Tests/Data/result_data.csv').data
 
-        for column in test_result:
-            result_test = float(column['Median'])
+        for column in result_data:
+            median_value = float(column['Median'])
 
-        list1 = []
+        data = []
 
         for row in test_data:
             result = float(row['List1'])
-            list1.append(result)
+            data.append(result)
 
-        self.Statistics.median(list1)
-        self.assertEqual(round(self.Statistics.result), round(result_test))
+        self.Statistics.median(data)
+        self.assertEqual(round(self.Statistics.result), round(median_value))
 
     def test_mode(self):
         test_data = CsvReader('Tests/Data/population_list.csv').data
-        test_result = CsvReader('Tests/Data/result_data.csv').data
+        result_data = CsvReader('Tests/Data/result_data.csv').data
 
-        for column in test_result:
-            result_test = float(column['Mode'])
+        for column in result_data:
+            mode_value = float(column['Mode'])
 
-        list1 = []
+        data = []
 
         for row in test_data:
             result = float(row['List1'])
-            list1.append(result)
+            data.append(result)
 
-        self.Statistics.mode(list1)
-        self.assertEqual(round(self.Statistics.result), round(result_test))
+        self.Statistics.mode(data)
+        self.assertEqual(round(self.Statistics.result), round(mode_value))
 
     def test_standard_deviation(self):
         test_data = CsvReader('Tests/Data/population_list.csv').data

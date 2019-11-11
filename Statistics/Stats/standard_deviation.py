@@ -1,6 +1,6 @@
-import statistics
+from Statistics.Stats.variance import variance
 
 
-def standard_deviation(list):
-    c = statistics.pstdev(list)
-    return c
+def standard_deviation(population_list):
+    calculated_variance = variance(population_list)
+    return calculated_variance ** 0.5
