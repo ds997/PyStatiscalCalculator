@@ -40,3 +40,6 @@ class Statistics:
     def sample_mean(self, population_list):
         self.result = sample_mean(population_list)
         return self.result
+    def z_score(self, population_list):
+         self.result = standard_deviation(population_list)
+         return self.result
