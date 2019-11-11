@@ -4,6 +4,7 @@ from Statistics.Stats.mode import mode
 from Statistics.Stats.standard_deviation import standard_deviation
 from Statistics.Stats.variance import variance
 from Statistics.Stats.sample_mean import sample_mean
+from Statistics.Stats.standardized_score import standardized_score
 
 
 class Statistics:
@@ -32,10 +33,13 @@ class Statistics:
         self.result = variance(population_list)
         return self.result
 
-    # def standardized_score(self, population_list):
-    #     self.result = standard_deviation(population_list)
-    #     return self.result
+    def standardized_score(self, population_list):
+         self.result = standard_deviation(population_list)
+         return self.result
 
     def sample_mean(self, population_list):
         self.result = sample_mean(population_list)
         return self.result
+    def z_score(self, population_list):
+         self.result = standard_deviation(population_list)
+         return self.result

@@ -106,6 +106,37 @@ class MyTestCase(unittest.TestCase):
 
         self.assertEqual(round(self.Statistics.sample_mean(list1)), round(result_test))
 
+    def test_standardized_score(self):
+
+        test_data = CsvReader('Tests/Data/population_list.csv').data
+        test_result = CsvReader('Tests/Data/result_data.csv').data
+
+        for column in test_result:
+            result_test = float(column['StandardizedScore'])
+
+        list1 = []
+
+        for row in test_data:
+            result = float(row['List1'])
+            list1.append(result)
+
+        self.assertEqual(round(self.Statistics.standardized_score(list1)), round(result_test))
+
+    def test_z_score(self):
+
+            test_data = CsvReader('Tests/Data/population_list.csv').data
+            test_result = CsvReader('Tests/Data/result_data.csv').data
+
+            for column in test_result:
+                result_test = float(column['Z_score'])
+
+            list1 = []
+
+            for row in test_data:
+                result = float(row['List1'])
+                list1.append(result)
+
+            self.assertEqual(round(self.Statistics.z_score(list1)), round(result_test))
 
 if __name__ == '__main__':
     unittest.main()
