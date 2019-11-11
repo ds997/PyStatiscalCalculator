@@ -1,10 +1,9 @@
 from Statistics.Stats.mean import mean
-import statistics
 from Statistics.Stats.standard_deviation import standard_deviation
 
 
 def Z_score(my_population):
-    mean_result = statistics.mean(my_population)
+    mean_result = mean(my_population)
     stdev_result = standard_deviation(my_population)
     zscore = list()
     for x in my_population:

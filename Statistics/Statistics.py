@@ -6,6 +6,8 @@ from Statistics.Stats.variance import variance
 from Statistics.Stats.sample_mean import sample_mean
 from Statistics.Stats.standardized_score import standardized_score
 from Statistics.Stats.z_score import Z_score
+from Statistics.Stats.pop_correlation_coefficient import Pop_correlation_coefficient
+
 
 
 class Statistics:
@@ -44,8 +46,8 @@ class Statistics:
     def z_score(self, population_list):
          result_list = Z_score(population_list)
          return result_list
-    '''
+
     def pop_correlation_coefficient(self, population_list):
-         self.result = standard_deviation(population_list)
-         return self.result
-    '''
+        new_population_list = list(map(lambda x: x * 25, population_list))
+        self.result = Pop_correlation_coefficient(population_list,new_population_list)
+        return self.result

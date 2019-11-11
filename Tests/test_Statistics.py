@@ -140,21 +140,21 @@ class MyTestCase(unittest.TestCase):
             self.assertListEqual(self.Statistics.z_score(test_data), test_result)
 
 
-    def ytest_pop_correlation_coefficient(self):
+    def test_pop_correlation_coefficient(self):
 
-            test_data = CsvReader('Tests/Data/population_list.csv').data
+            test_data = CsvReader2('Tests/Data/population_list.csv').data
             test_result = CsvReader('Tests/Data/result_data.csv').data
 
             for column in test_result:
                 result_test = float(column['Pop_correlation_coefficient'])
-
+            '''
             list1 = []
 
             for row in test_data:
                 result = float(row['List1'])
                 list1.append(result)
-
-            self.assertEqual(round(self.Statistics.z_score(list1)), round(result_test))
+            '''
+            self.assertEqual(round(self.Statistics.pop_correlation_coefficient(test_data)), round(result_test))
 
 if __name__ == '__main__':
     unittest.main()
