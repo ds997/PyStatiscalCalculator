@@ -125,9 +125,9 @@ class MyTestCase(unittest.TestCase):
 
     def test_z_score(self):
 
-            test_data = CsvReader2('Tests/Data/population_list.csv').data
-            test_result = CsvReader2('Tests/Data/result_zscore.csv').data
-            '''
+        test_data = CsvReader2('Tests/Data/population_list.csv').data
+        test_result = CsvReader2('Tests/Data/result_zscore.csv').data
+        '''
             for column in test_result:
                 result_test = float(column['Z_score'])
             
@@ -137,24 +137,23 @@ class MyTestCase(unittest.TestCase):
                 result = float(row[0])
                 list1.append(result)
             '''
-            self.assertListEqual(self.Statistics.z_score(test_data), test_result)
-
+        self.assertListEqual(self.Statistics.z_score(test_data), test_result)
 
     def test_pop_correlation_coefficient(self):
 
-            test_data = CsvReader2('Tests/Data/population_list.csv').data
-            test_result = CsvReader('Tests/Data/result_data.csv').data
+        test_data = CsvReader2('Tests/Data/population_list.csv').data
+        test_result = CsvReader('Tests/Data/result_data.csv').data
 
-            for column in test_result:
-                result_test = float(column['Pop_correlation_coefficient'])
-            '''
+        for column in test_result:
+            result_test = float(column['Pop_correlation_coefficient'])
+        '''
             list1 = []
 
             for row in test_data:
                 result = float(row['List1'])
                 list1.append(result)
             '''
-            self.assertEqual(round(self.Statistics.pop_correlation_coefficient(test_data)), round(result_test))
+        self.assertEqual(round(self.Statistics.pop_correlation_coefficient(test_data)), round(result_test))
 
     def test_sample_standard_deviation(self):
 
@@ -182,18 +181,17 @@ class MyTestCase(unittest.TestCase):
             result_test = float((column['Proportion_result']))
 
         for row in test_data:
-            result= float(row['List1'])
+            result = float(row['List1'])
             list1.append(result)
 
-        self.assertEqual(round(self.Statistics.proportion(list1)),round(result_test))
+        self.assertEqual(round(self.Statistics.proportion(list1)), round(result_test))
 
     def test_sample_variance_calculator(self):
-        print(' ')
-        print('Testing Population Variance')
+
         test_data = CsvReader('Tests/Data/population_list.csv').data
         test_result = CsvReader('Tests/Data/result_data.csv').data
 
-        list1  = []
+        list1 = []
 
         for column in test_result:
             result_test = float((column['Variance_Sample_result']))
@@ -202,21 +200,43 @@ class MyTestCase(unittest.TestCase):
             result = int(row['List1'])
             list1.append(result)
 
-        self.assertEqual(round(self.Statistics.sample_variance(list1)),round(result_test))
+        self.assertEqual(round(self.Statistics.sample_variance(list1)), round(result_test))
 
     def test_Population_Variance_calculator(self):
-        print(' ')
-        print('Testing Population Variance Population')
+
         test_data = CsvReader('Tests/Data/population_list.csv').data
         test_result = CsvReader('Tests/Data/result_data.csv').data
         list1 = []
         for column in test_result:
             result_test = float((column['Population_Variance']))
         for row in test_data:
-            result= int(row['List1'])
+            result = int(row['List1'])
             list1.append(result)
 
-        self.assertEqual(round(self.Statistics.population_variance(list1)),round( result_test))
+        self.assertEqual(round(self.Statistics.population_variance(list1)), round(result_test))
+
+    def test_confidence_interval(self):
+
+        test_data = CsvReader('Tests/Data/population_list.csv').data
+        result_cf_interval = CsvReader('Tests/Data/result_data.csv').data
+
+        for column in result_cf_interval:
+            result_test1 = float(column['Confidence_Interval1'])
+            result_test2 = float(column['Confidence_Interval2'])
+
+        data = []
+
+        for row in test_data:
+            result_data = float(row['List1'])
+            data.append(result_data)
+        x = self.Statistics.confidence_interval(data)
+
+        try:
+            self.assertAlmostEqual(x[0], result_test1)
+            self.assertAlmostEqual(x[1], result_test2)
+        except AssertionError as e:
+            print("Confidence Interval has Assertion Error:", e)
+            assert 0
 
 
 if __name__ == '__main__':
