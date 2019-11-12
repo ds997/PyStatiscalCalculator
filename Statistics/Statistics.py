@@ -12,6 +12,8 @@ from Statistics.Stats.proportion import proportion
 
 
 
+
+
 class Statistics:
     result = 0
 
@@ -45,6 +47,7 @@ class Statistics:
     def sample_mean(self, population_list):
         self.result = sample_mean(population_list)
         return self.result
+
     def z_score(self, population_list):
          result_list = Z_score(population_list)
          return result_list
@@ -60,4 +63,8 @@ class Statistics:
 
     def proportion(self, population_list):
         self.result = proportion(population_list)
+        return self.result
+
+    def sample_variance(self, population_list):
+        self.result = variance(population_list)
         return self.result
