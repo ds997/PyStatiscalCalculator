@@ -172,5 +172,22 @@ class MyTestCase(unittest.TestCase):
 
         self.assertEqual(round(self.Statistics.sample_standard_deviation(list1)), round(result_test))
 
+    def test_proportion_calculator(self):
+        test_data = CsvReader('Tests/Data/population_list.csv').data
+        test_result = CsvReader('Tests/Data/result_data.csv').data
+
+        list1 = []
+
+        for column in test_result:
+            result_test = float((column['Proportion_result']))
+
+        for row in test_data:
+            result= float(row['List1'])
+            list1.append(result)
+
+        self.assertEqual(round(self.Statistics.proportion(list1)),round(result_test))
+
+
+
 if __name__ == '__main__':
     unittest.main()
