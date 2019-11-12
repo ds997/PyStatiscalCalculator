@@ -9,6 +9,8 @@ from Statistics.Stats.z_score import Z_score
 from Statistics.Stats.pop_correlation_coefficient import Pop_correlation_coefficient
 from Statistics.Stats.sample_standard_deviation import Sample_standard_deviation
 from Statistics.Stats.proportion import proportion
+from Statistics.Stats.Variance_of_population_proportion import variance
+
 
 
 
@@ -68,3 +70,9 @@ class Statistics:
     def sample_variance(self, population_list):
         self.result = variance(population_list)
         return self.result
+
+    def population_variance(self, population_list):
+        self.result = variance(population_list)
+        return self.result
+
+
