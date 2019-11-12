@@ -156,5 +156,21 @@ class MyTestCase(unittest.TestCase):
             '''
             self.assertEqual(round(self.Statistics.pop_correlation_coefficient(test_data)), round(result_test))
 
+    def test_sample_standard_deviation(self):
+
+        test_data = CsvReader('Tests/Data/population_list.csv').data
+        test_result = CsvReader('Tests/Data/result_data.csv').data
+
+        for column in test_result:
+            result_test = float(column['Sample_Standard_Deviation'])
+
+        list1 = []
+
+        for row in test_data:
+            result = float(row['List1'])
+            list1.append(result)
+
+        self.assertEqual(round(self.Statistics.sample_standard_deviation(list1)), round(result_test))
+
 if __name__ == '__main__':
     unittest.main()
