@@ -1,4 +1,4 @@
-from Calculator.Statistics.mean import mean
+from Statistics.Stats.mean import mean
 from Statistics.Stats.standard_deviation import standard_deviation
 
 
@@ -8,6 +8,6 @@ def Z_score(my_population):
     zscore = list()
     for x in my_population:
         my_score = (x - mean_result) / stdev_result
-        zscore.append(my_score)
+        zscore.append(round(my_score,2))
     return zscore
 

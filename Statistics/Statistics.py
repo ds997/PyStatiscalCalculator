@@ -5,6 +5,10 @@ from Statistics.Stats.standard_deviation import standard_deviation
 from Statistics.Stats.variance import variance
 from Statistics.Stats.sample_mean import sample_mean
 from Statistics.Stats.standardized_score import standardized_score
+from Statistics.Stats.z_score import Z_score
+from Statistics.Stats.pop_correlation_coefficient import Pop_correlation_coefficient
+from Statistics.Stats.sample_standard_deviation import Sample_standard_deviation
+
 
 
 class Statistics:
@@ -34,12 +38,21 @@ class Statistics:
         return self.result
 
     def standardized_score(self, population_list):
-         self.result = standard_deviation(population_list)
-         return self.result
+         result_list = standardized_score(population_list)
+         return result_list
 
     def sample_mean(self, population_list):
         self.result = sample_mean(population_list)
         return self.result
     def z_score(self, population_list):
-         self.result = standard_deviation(population_list)
-         return self.result
+         result_list = Z_score(population_list)
+         return result_list
+
+    def pop_correlation_coefficient(self, population_list):
+        new_population_list = list(map(lambda x: x * 25, population_list))
+        self.result = Pop_correlation_coefficient(population_list,new_population_list)
+        return self.result
+
+    def sample_standard_deviation(self, population_list):
+        self.result = Sample_standard_deviation(population_list)
+        return self.result

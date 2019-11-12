@@ -1,2 +1,2 @@
-Mean,Median,Mode,Standard Deviation,Sample Mean,Variance,StandardizedScore,Z_score
-608,711,580,291,608,84934,291,291
+Mean,Median,Mode,Standard Deviation,Sample Mean,Variance,Pop_correlation_coefficient,Sample_Standard_Deviation
+608,711,580,291,608,84934,1,291

@@ -1,5 +1,6 @@
 import unittest
 from CsvReader.CsvReader import CsvReader
+from CsvReader.CsvReader2 import CsvReader2
 from Statistics.Statistics import Statistics
 
 
@@ -108,11 +109,60 @@ class MyTestCase(unittest.TestCase):
 
     def test_standardized_score(self):
 
+        test_data = CsvReader2('Tests/Data/population_list.csv').data
+        test_result = CsvReader2('Tests/Data/result_zscore.csv').data
+        '''
+        for column in test_result:
+            result_test = float(column['Z_score'])
+        
+        list1 = list()
+
+        for row in test_data:
+            result = float(row[0])
+            list1.append(result)
+        '''
+        self.assertListEqual(self.Statistics.z_score(test_data), test_result)
+
+    def test_z_score(self):
+
+            test_data = CsvReader2('Tests/Data/population_list.csv').data
+            test_result = CsvReader2('Tests/Data/result_zscore.csv').data
+            '''
+            for column in test_result:
+                result_test = float(column['Z_score'])
+            
+            list1 = list()
+
+            for row in test_data:
+                result = float(row[0])
+                list1.append(result)
+            '''
+            self.assertListEqual(self.Statistics.z_score(test_data), test_result)
+
+
+    def test_pop_correlation_coefficient(self):
+
+            test_data = CsvReader2('Tests/Data/population_list.csv').data
+            test_result = CsvReader('Tests/Data/result_data.csv').data
+
+            for column in test_result:
+                result_test = float(column['Pop_correlation_coefficient'])
+            '''
+            list1 = []
+
+            for row in test_data:
+                result = float(row['List1'])
+                list1.append(result)
+            '''
+            self.assertEqual(round(self.Statistics.pop_correlation_coefficient(test_data)), round(result_test))
+
+    def test_sample_standard_deviation(self):
+
         test_data = CsvReader('Tests/Data/population_list.csv').data
         test_result = CsvReader('Tests/Data/result_data.csv').data
 
         for column in test_result:
-            result_test = float(column['StandardizedScore'])
+            result_test = float(column['Sample_Standard_Deviation'])
 
         list1 = []
 
@@ -120,23 +170,7 @@ class MyTestCase(unittest.TestCase):
             result = float(row['List1'])
             list1.append(result)
 
-        self.assertEqual(round(self.Statistics.standardized_score(list1)), round(result_test))
-
-    def test_z_score(self):
-
-            test_data = CsvReader('Tests/Data/population_list.csv').data
-            test_result = CsvReader('Tests/Data/result_data.csv').data
-
-            for column in test_result:
-                result_test = float(column['Z_score'])
-
-            list1 = []
-
-            for row in test_data:
-                result = float(row['List1'])
-                list1.append(result)
-
-            self.assertEqual(round(self.Statistics.z_score(list1)), round(result_test))
+        self.assertEqual(round(self.Statistics.sample_standard_deviation(list1)), round(result_test))
 
 if __name__ == '__main__':
     unittest.main()
