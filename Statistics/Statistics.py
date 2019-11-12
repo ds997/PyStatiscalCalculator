@@ -8,6 +8,7 @@ from Statistics.Stats.standardized_score import standardized_score
 from Statistics.Stats.z_score import Z_score
 from Statistics.Stats.pop_correlation_coefficient import Pop_correlation_coefficient
 from Statistics.Stats.sample_standard_deviation import Sample_standard_deviation
+from Statistics.Stats.proportion import proportion
 
 
 
@@ -55,4 +56,8 @@ class Statistics:
 
     def sample_standard_deviation(self, population_list):
         self.result = Sample_standard_deviation(population_list)
+        return self.result
+
+    def proportion(self, population_list):
+        self.result = proportion(population_list)
         return self.result
