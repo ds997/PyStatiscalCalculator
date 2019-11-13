@@ -133,6 +133,23 @@ Population variance (σ2) tells us how data points in a specific population are 
 
 Here N is the population size and the xi are data points. μ is the population mean.
 
+**P-Value**
+
+When you perform a hypothesis test in statistics, a p-value helps you determine the significance of your results. ... The p-value is a number between 0 and 1 and interpreted in the following way: A small p-value (typically ≤ 0.05) indicates strong evidence against the null hypothesis, so you reject the null hypothesis.
+
+**Proportions**
+
+A proportion is simply a statement that two ratios are equal. It can be written in two ways: as two equal fractions a/b = c/d; or using a colon, a:b = c:d. The following proportion is read as "twenty is to twenty-five as four is to five."
+ 
+```
+20/25=4/5
+```
+**Sample Mean**
+
+The sample mean   from a group of observations is an estimate of the population mean  . Given a sample of size n, consider n independent random variables X1, X2, ..., Xn, each corresponding to one randomly selected observation. Each of these variables has the distribution of the population, with mean   and standard deviation  . The sample mean is defined  to be:
+```
+x̄ = ( Σ xi ) / n
+```
 
 
 
