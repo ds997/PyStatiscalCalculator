@@ -28,11 +28,24 @@ Statistical calculator functions
 14. Sample Standard Deviation
 15. Variance of sample proportion
 
-#Checklist
+# Checklist
 - [x] Population Mean 
 - [x] Median
 - [x] Mode 
 - [x] Population Standard Deviation 
+- [x] Variance of population proportion
+- [x] Z-Score
+- [x] Standardized score
+- [x] Population Correlation Coefficient
+- [x] Confidence Interval
+- [x] Population Variance
+- [ ] P Value
+- [x] Proportion
+- [x] Sample Mean
+- [x] Sample Standard Deviation
+- [x] Variance of sample proportion
+
+
 
 
 **Population Mean**
