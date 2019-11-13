@@ -150,7 +150,7 @@ The sample mean   from a group of observations is an estimate of the population 
 ```
 x̄ = ( Σ xi ) / n
 ```
-**Sample Standard Deviation**
+ **Sample Standard Deviation**
 
 The Sample standard deviation measures the spread of the data about the mean value. It is useful in comparing sets of data which may have the same mean but a different range. 
 
