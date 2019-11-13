@@ -103,6 +103,36 @@ The basic z score formula for a sample is:
 ```
 z = (x – μ) / σ 
 ```
+**Standardized score**
+
+In statistics, the standard score is the signed fractional number of standard deviations by which the value of an observation or data point is above the mean value of what is being observed or measured.
+When a frequency distribution is normally distributed, we can find out the probability of a score occurring by standardizing the scores, known as standard scores (or z scores). The standard normal distribution simply converts the group of data in our frequency distribution such that the mean is 0 and the standard deviation is 1.
+
+![Standard_score](https://statistics.laerd.com/statistical-guides/img/DIAGRAM8.gif)
+
+**Population Correlation Coefficient**
+
+The correlation coefficient of two variables in a data set equals to their covariance divided by the product of their individual standard deviations.
+The population correlation coefficient uses σx and σy as the population standard deviations, and σxy as the population covariance.
+
+
+![](https://www.statisticshowto.datasciencecentral.com/wp-content/uploads/2012/12/population-correlation-coefficient.png)
+
+
+**Confidence Interval**
+
+ A confidence interval is a range of values, derived from sample statistics, that is likely to contain the value of an unknown population parameter. The confidence level is designated prior to examining the data. Most commonly, the 95% confidence level is used. However, other confidence levels can be used, for example, 90% and 99%.
+
+**Population variance**
+
+Population variance (σ2) tells us how data points in a specific population are spread out. It is the average of the distances from each data point in the population to the mean, squared.
+σ2 is usually represented as σ2 and can be calculated using the following formula:
+
+![](https://www.statisticshowto.datasciencecentral.com/wp-content/uploads/2017/07/population-variance.png)
+
+
+Here N is the population size and the xi are data points. μ is the population mean.
+
 
 
 
