@@ -33,3 +33,48 @@ Statistical calculator functions
 - [x] Median
 - [x] Mode 
 - [x] Population Standard Deviation 
+
+
+**Population Mean**
+
+The term population mean, which is the average score of the population on a given variable, is represented by:
+μ = ( Σ Xi ) / N
+The symbol ‘μ’ represents the population mean.  The symbol ‘Σ Xi’ represents the sum of all scores present in the population (say, in this case) X1 X2 X3 and so on.  The symbol 
+‘N’ represents the total number of individuals or cases in the population.
+
+
+**Median**
+
+The median of a set of data is the middlemost number in the set. The median is also the number that is halfway into the set. To find the median, the data should first be arranged in order from least to greatest.
+If there is an odd number of observations,
+
+For example, consider the list of numbers
+
+1, 3, 3, 6, 7, 8, 9
+
+This list contains seven numbers. The median is the fourth of them, which is 6.
+
+If there is an even number of observations,
+
+For example, consider the list of numbers
+
+1, 2, 3, 4, 5, 6, 8, 9
+
+This list contains eight numbers. the median is the mean of the middle two numbers i.e. (4+5)/2 is 4.5.
+
+**Mode**
+
+To find the mode, or modal value, it is best to put the numbers in order. Then count how many of each number. A number that appears most often is the mode.
+Example:
+
+3, 7, 5, 13, 20, 23, 39, 23, 40, 23, 14, 12, 56, 23, 29
+
+In order these numbers are:
+
+3, 5, 7, 12, 13, 14, 20, 23, 23, 23, 23, 29, 39, 40, 56
+
+This makes it easy to see which numbers appear most often.
+In this case the mode is 23.
+
+
+
