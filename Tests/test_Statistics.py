@@ -238,6 +238,17 @@ class MyTestCase(unittest.TestCase):
             print("Confidence Interval has Assertion Error:", e)
             assert 0
 
+    def test_p_value(self):
+
+        test_data = CsvReader2('Tests/Data/population_list.csv').data
+        test_result = CsvReader('Tests/Data/result_data.csv').data
+
+        result_test = 0
+        for column in test_result:
+            result_test = float(column['P_Value'])
+
+        self.assertEqual(round(self.Statistics.p_value(test_data)), round(result_test))
+
 
 if __name__ == '__main__':
     unittest.main()
