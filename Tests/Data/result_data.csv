@@ -1,2 +1,2 @@
-Mean,Median,Mode,Standard Deviation,Sample Mean,Variance,Pop_correlation_coefficient,Sample_Standard_Deviation,Proportion_result,Variance_Sample_result,Population_Variance,Confidence_Interval1,Confidence_Interval2
-499,481,488,302,499,91344,1,302,2,91344,91344,498.7744376851302,499.532867100764
+Mean,Median,Mode,Standard Deviation,Sample Mean,Variance,Pop_correlation_coefficient,Sample_Standard_Deviation,Proportion_result,Variance_Sample_result,Population_Variance,Confidence_Interval1,Confidence_Interval2,P_Value
+499,481,488,302,499,91344,1,302,2,91344,91344,498.7744376851302,499.532867100764,0

@@ -11,6 +11,7 @@ from Statistics.Stats.sample_standard_deviation import Sample_standard_deviation
 from Statistics.Stats.proportion import proportion
 from Statistics.Stats.Variance_of_population_proportion import variance
 from Statistics.Stats.confidence_interval import confidence_interval
+from Statistics.Stats.p_value import P_value
 
 
 class Statistics:
@@ -74,4 +75,8 @@ class Statistics:
 
     def confidence_interval(self, population_list):
         self.result = confidence_interval(population_list)
+        return self.result
+
+    def p_value(self, population_list):
+        self.result = P_value(population_list, 0.95)
         return self.result
