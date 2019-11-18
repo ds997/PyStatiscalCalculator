@@ -39,7 +39,7 @@ Statistical calculator functions
 - [x] Population Correlation Coefficient
 - [x] Confidence Interval
 - [x] Population Variance
-- [ ] P Value
+- [x] P Value
 - [x] Proportion
 - [x] Sample Mean
 - [x] Sample Standard Deviation
