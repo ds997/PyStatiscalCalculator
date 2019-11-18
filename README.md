@@ -10,7 +10,12 @@
 3. sb2344 - Soham Banerjee
 
 
-Statistical calculator functions
+## Mini Project 1 (Updated)
+
+[Mini Project 1 (updated terms)](https://github.com/ds997/mini_project1.git)
+
+
+## Statistical calculator functions
 
 1. Population Mean 
 2. Median
@@ -28,7 +33,7 @@ Statistical calculator functions
 14. Sample Standard Deviation
 15. Variance of sample proportion
 
-# Checklist
+## Checklist
 - [x] Population Mean 
 - [x] Median
 - [x] Mode 
@@ -47,6 +52,7 @@ Statistical calculator functions
 
 
 
+## Statistical Functions References
 
 **Population Mean**
 
