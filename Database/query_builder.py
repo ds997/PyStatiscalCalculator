@@ -159,3 +159,27 @@ for row in result:
     print("Name: ", row.name, " Cost Price:", row.cost_price, " Selling Price:", row.selling_price, " Quantity:",
           row.quantity)
 print("===========================")
+
+print("\n=========join()=========")
+result = session.query(create_model.Customer, create_model.Order.date_placed).join(create_model.Order).all()
+print("~~Join between Customer and Order:~~")
+for row in result:
+    print(" Order placed on:", row.date_placed)
+print("===========================")
+
+print("\n=========outerjoin()=========")
+result =  session.query(create_model.Customer.first_name, create_model.Order.id).outerjoin(create_model.Order).all()
+print("~~Outer Join between Customer and Order:~~")
+for row in result:
+   print (" Order placed by:",row.first_name, " with Order ID:",row.id)
+print("===========================")
+
+
+print("\n=========groupby()=========")
+result =  session.query(func.count(create_model.Customer.id)).join(create_model.Order).filter(
+   create_model.Customer.first_name == 'John',
+   create_model.Customer.last_name == 'Green',
+).group_by(create_model.Customer.id).scalar()
+print("~~Number of Orders made by John Green:~~")
+print(result)
+print("===========================")
