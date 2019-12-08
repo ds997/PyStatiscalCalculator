@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Integer, String, Column, DateTime
+from sqlalchemy import create_engine, Integer, String, Column, DateTime, Numeric
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 
@@ -20,3 +20,13 @@ class Customer(Base):
     created_on = Column(DateTime(), default=datetime.now)
     updated_on = Column(DateTime(), default=datetime.now, onupdate=datetime.now)
     orders = relationship("Order", backref='customer')
+
+
+class Item(Base):
+    __tablename__ = 'items'
+    id = Column(Integer(), primary_key=True)
+    name = Column(String(200), nullable=False)
+    cost_price = Column(Numeric(10, 2), nullable=False)
+    selling_price = Column(Numeric(10, 2), nullable=False)
+    quantity = Column(Integer(), nullable=False)
+    orders = relationship("OrderLine", backref='item')
