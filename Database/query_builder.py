@@ -145,8 +145,17 @@ for row in result:
 print("===========================")
 
 print("=========offset()=========")
-result =  session.query(create_model.Customer).limit(2).offset(2).all()
+result = session.query(create_model.Customer).limit(2).offset(2).all()
 print("~~Printing all customers but limiting to 2 and offsetting to 2:~~")
 for row in result:
-   print ("Name: ",row.first_name," ",row.last_name, " Address:",row.address, " Email:",row.email)
+    print("Name: ", row.first_name, " ", row.last_name, " Address:", row.address, " Email:", row.email)
+print("===========================")
+
+print("=========order_by()=========")
+result = session.query(create_model.Item).filter(create_model.Item.name.like("wa%")).order_by(
+    desc(create_model.Item.cost_price)).all()
+print("~~Printing all items that start with wa and then it is sorted by the cost price in descending order:~~")
+for row in result:
+    print("Name: ", row.name, " Cost Price:", row.cost_price, " Selling Price:", row.selling_price, " Quantity:",
+          row.quantity)
 print("===========================")
