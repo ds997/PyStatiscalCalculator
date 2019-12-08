@@ -68,3 +68,29 @@ result = session.query(create_model.Customer).filter(create_model.Customer.first
 print("\n~~All customers with name starting with John:~~")
 for row in result:
     print("Name: ", row.first_name, " ", row.last_name, " Address:", row.address, " Email:", row.email)
+
+result = session.query(create_model.Customer).filter(create_model.Customer.id <= 5,
+                                                     create_model.Customer.town.like("Nor%")).all()
+print("\n~~All customers with id less than or equal to 5 and living in Norfolk town:~~")
+for row in result:
+    print("Name: ", row.first_name, " ", row.last_name, " Address:", row.address, " Email:", row.email)
+
+print("\n~~find all customers who either live in Peterbrugh or Norfolk~~")
+result = session.query(create_model.Customer).filter(
+    or_(create_model.Customer.town == 'Peterbrugh', create_model.Customer.town == 'Norfolk')).all()
+for row in result:
+    print("Name: ", row.first_name, " ", row.last_name, " Address:", row.address, " Email:", row.email)
+
+print("\n~~find all customers whose first name is John and live in Norfolk~~")
+result = session.query(create_model.Customer).filter(
+    and_(create_model.Customer.first_name == 'John', create_model.Customer.town == 'Norfolk')).all()
+for row in result:
+    print("Name: ", row.first_name, " ", row.last_name, " Address:", row.address, " Email:", row.email)
+
+print("\n~~find all johns who don't live in Peterbrugh~~")
+result = session.query(create_model.Customer).filter(
+    and_(create_model.Customer.first_name == 'John', not_(create_model.Customer.town == 'Peterbrugh', ))).all()
+for row in result:
+    print("Name: ", row.first_name, " ", row.last_name, " Address:", row.address, " Email:", row.email)
+print("===========================")
+print("\n")
