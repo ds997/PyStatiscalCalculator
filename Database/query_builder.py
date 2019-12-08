@@ -168,18 +168,60 @@ for row in result:
 print("===========================")
 
 print("\n=========outerjoin()=========")
-result =  session.query(create_model.Customer.first_name, create_model.Order.id).outerjoin(create_model.Order).all()
+result = session.query(create_model.Customer.first_name, create_model.Order.id).outerjoin(create_model.Order).all()
 print("~~Outer Join between Customer and Order:~~")
 for row in result:
-   print (" Order placed by:",row.first_name, " with Order ID:",row.id)
+    print(" Order placed by:", row.first_name, " with Order ID:", row.id)
 print("===========================")
 
-
 print("\n=========groupby()=========")
-result =  session.query(func.count(create_model.Customer.id)).join(create_model.Order).filter(
-   create_model.Customer.first_name == 'John',
-   create_model.Customer.last_name == 'Green',
+result = session.query(func.count(create_model.Customer.id)).join(create_model.Order).filter(
+    create_model.Customer.first_name == 'John',
+    create_model.Customer.last_name == 'Green',
 ).group_by(create_model.Customer.id).scalar()
 print("~~Number of Orders made by John Green:~~")
 print(result)
 print("===========================")
+
+print("\n=========Dealing with Duplicates=========")
+result = session.query(create_model.Customer.town).filter(create_model.Customer.id <= 10).distinct().all()
+print("~~Distinct towns:~~")
+
+for row in result:
+    print(row.town)
+print("===========================")
+
+print("\n=========Union=========")
+s1 = session.query(create_model.Item.id, create_model.Item.name).filter(create_model.Item.name.like("Wa%"))
+s2 = session.query(create_model.Item.id, create_model.Item.name).filter(create_model.Item.name.like("%e%"))
+result =  s1.union(s2).all()
+print("~~Union between items starting with Wa and having a e in between:~~")
+
+for row in result:
+   print (row)
+print("===========================")
+
+print("\n=========Updating Data=========")
+result = session.query(create_model.Item).filter(
+    create_model.Item.name.ilike("W%")
+).update({"quantity": 60}, synchronize_session='fetch')
+session.commit()
+print("~~Updating  Item starting with W:~~")
+
+print(result)
+print("===========================")
+
+print("\n=========Deleting Data=========")
+result = session.query(create_model.Item).filter(create_model.Item.name == 'Monitor').one()
+session.delete(result)
+session.commit()
+print("~~Deleting Item Monitor:~~")
+
+print(result.name)
+print("===========================")
+
+
+print("\n=========Transactions=========")
+result = session.query(create_model.Order).all()
+
+print("~~Orders Status:~~")
