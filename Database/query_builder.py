@@ -37,3 +37,28 @@ print(session.query(create_model.Customer).count())  # get the total number of r
 print(session.query(create_model.Item).count())  # get the total number of records in the items table
 print(session.query(create_model.Order).count())  # get the total number of records in the orders table
 print("===========================")
+
+print("=========first()=========")
+result = session.query(create_model.Customer).first()
+print("Name: ", result.first_name, " ", result.last_name, " Address:", result.address, " Email:", result.email)
+
+result = session.query(create_model.Item).first()
+print("Name: ", result.name, " Cost Price:", result.cost_price, " Selling Price:", result.selling_price, " Quantity:",
+      result.quantity)
+
+result = session.query(create_model.Order).first()
+print("ID: ", result.id, " Date Placed:", result.date_placed, " Customer Id:", result.customer_id)
+print("===========================")
+
+print("=========get()=========")
+result = session.query(create_model.Customer).get(1)
+print("Name: ", result.first_name, " ", result.last_name, " Address:", result.address, " Email:", result.email)
+result = session.query(create_model.Item).get(1)
+print("Name: ", result.name, " Cost Price:", result.cost_price, " Selling Price:", result.selling_price, " Quantity:",
+      result.quantity)
+result = session.query(create_model.Order).get(100)
+if result is not None:
+    print("ID: ", result.id, " Date Placed:", result.date_placed, " Customer Id:", result.customer_id)
+else:
+    print(result)
+print("===========================")
