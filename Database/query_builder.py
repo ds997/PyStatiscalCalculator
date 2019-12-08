@@ -1,9 +1,9 @@
+
 import datetime
 
 from sqlalchemy import *
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
-
 from Database import create_model
 
 engine = create_engine("sqlite:///db1.sqlite")
