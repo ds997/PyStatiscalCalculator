@@ -27,21 +27,21 @@ session.add(c2)
 session.commit()
 
 c3 = create_model.Customer(
-    first_name="John",
-    last_name="Lara",
-    username="johnlara",
-    email="johnlara@mail.com",
-    address="3073 Derek Drive",
-    town="Norfolk"
+                            first_name="John",
+                            last_name="Lara",
+                            username="johnlara",
+                            email="johnlara@mail.com",
+                            address="3073 Derek Drive",
+                            town="Norfolk"
 )
 
 c4 = create_model.Customer(
-    first_name="Sarah",
-    last_name="Tomlin",
-    username="sarahtomlin",
-    email="sarahtomlin@mail.com",
-    address="3572 Poplar Avenue",
-    town="Norfolk"
+                            first_name="Sarah",
+                            last_name="Tomlin",
+                            username="sarahtomlin",
+                            email="sarahtomlin@mail.com",
+                            address="3572 Poplar Avenue",
+                            town="Norfolk"
 )
 
 c5 = create_model.Customer(first_name='Toby',
@@ -74,4 +74,26 @@ i7 = create_model.Item(name='Watch', cost_price=100.58, selling_price=104.41, qu
 i8 = create_model.Item(name='Water Bottle', cost_price=20.89, selling_price=25, quantity=50)
 
 session.add_all([i1, i2, i3, i4, i5, i6, i7, i8])
+session.commit()
+
+# Adding Orders
+o1 = create_model.Order(customer=c1)
+o2 = create_model.Order(customer=c1)
+
+line_item1 = create_model.OrderLine(order=o1, item=i1, quantity=3)
+line_item2 = create_model.OrderLine(order=o1, item=i2, quantity=2)
+line_item3 = create_model.OrderLine(order=o2, item=i1, quantity=1)
+line_item3 = create_model.OrderLine(order=o2, item=i2, quantity=4)
+
+session.add_all([o1, o2])
+
+session.new
+session.commit()
+
+o3 = create_model.Order(customer=c1)
+order_line1 = create_model.OrderLine(order=o1, item=i1, quantity=5)
+order_line2 = create_model.OrderLine(order=o1, item=i2, quantity=10)
+
+session.add_all([o3])
+
 session.commit()

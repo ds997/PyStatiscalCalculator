@@ -20,3 +20,10 @@ for row in result:
     print("Name: ", row.name, " Cost Price:", row.cost_price, " Selling Price:", row.selling_price, " Quantity:",
           row.quantity)
 print("===========================")
+
+print("=========Orders=========")
+# prints all the records of  the Order table
+result = session.query(create_model.Order).all()
+for row in result:
+    print("ID: ", row.id, " Date Placed:", row.date_placed, " Customer Id:", row.customer_id)
+print("===========================")
