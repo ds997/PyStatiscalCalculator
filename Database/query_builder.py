@@ -1,4 +1,7 @@
+import datetime
+
 from sqlalchemy import *
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from Database import create_model
@@ -194,11 +197,11 @@ print("===========================")
 print("\n=========Union=========")
 s1 = session.query(create_model.Item.id, create_model.Item.name).filter(create_model.Item.name.like("Wa%"))
 s2 = session.query(create_model.Item.id, create_model.Item.name).filter(create_model.Item.name.like("%e%"))
-result =  s1.union(s2).all()
+result = s1.union(s2).all()
 print("~~Union between items starting with Wa and having a e in between:~~")
 
 for row in result:
-   print (row)
+    print(row)
 print("===========================")
 
 print("\n=========Updating Data=========")
@@ -220,8 +223,51 @@ print("~~Deleting Item Monitor:~~")
 print(result.name)
 print("===========================")
 
-
 print("\n=========Transactions=========")
 result = session.query(create_model.Order).all()
 
 print("~~Orders Status:~~")
+
+
+def dispatch_order(order_id):
+    # check whether order_id is valid or not
+    order = session.query(create_model.Order).get(order_id)
+
+    try:
+        if not order:
+            raise ValueError("Invalid order id: {}.".format(order_id))
+    except ValueError as e:
+        print(e)
+        return
+
+    try:
+        if order.date_shipped:
+            print("Order already shipped.")
+            return
+    except:
+        pass
+
+    try:
+        for i in order.line_items:
+            i.item.quantity = i.item.quantity - i.quantity
+
+        order.date_shipped = datetime.now()
+        session.commit()
+        print("Transaction completed.")
+
+    except IntegrityError as e:
+        print(e)
+        print("Rolling back ...")
+        session.rollback()
+        print("Transaction failed.")
+
+
+print("~~Orders Status For Order ID 1:~~")
+dispatch_order(1)
+print("~~Orders Status For Order ID 2:~~")
+dispatch_order(2)
+print("~~Orders Status For Order ID 3:~~")
+dispatch_order(3)
+print("~~Orders Status For Order ID 4:~~")
+dispatch_order(4)
+print("===========================")
