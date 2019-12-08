@@ -62,3 +62,9 @@ if result is not None:
 else:
     print(result)
 print("===========================")
+
+print("=========filter()=========")
+result = session.query(create_model.Customer).filter(create_model.Customer.first_name == 'John').all()
+print("\n~~All customers with name starting with John:~~")
+for row in result:
+    print("Name: ", row.first_name, " ", row.last_name, " Address:", row.address, " Email:", row.email)
