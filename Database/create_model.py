@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Integer, String, Column, DateTime, Numeric, ForeignKey
+from sqlalchemy import create_engine, Integer, String, Column, DateTime, Numeric, ForeignKey, SmallInteger
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 
@@ -38,3 +38,14 @@ class Order(Base):
     customer_id = Column(Integer(), ForeignKey('customers.id'))
     date_placed = Column(DateTime(), default=datetime.now)
     line_items = relationship("OrderLine", backref='order')
+
+
+class OrderLine(Base):
+    __tablename__ = 'order_lines'
+    id = Column(Integer(), primary_key=True)
+    order_id = Column(Integer(), ForeignKey('orders.id'))
+    item_id = Column(Integer(), ForeignKey('items.id'))
+    quantity = Column(SmallInteger())
+
+
+Base.metadata.create_all(engine)
