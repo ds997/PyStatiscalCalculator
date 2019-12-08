@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Integer, String, Column, DateTime, Numeric
+from sqlalchemy import create_engine, Integer, String, Column, DateTime, Numeric, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 
@@ -30,3 +30,11 @@ class Item(Base):
     selling_price = Column(Numeric(10, 2), nullable=False)
     quantity = Column(Integer(), nullable=False)
     orders = relationship("OrderLine", backref='item')
+
+
+class Order(Base):
+    __tablename__ = 'orders'
+    id = Column(Integer(), primary_key=True)
+    customer_id = Column(Integer(), ForeignKey('customers.id'))
+    date_placed = Column(DateTime(), default=datetime.now)
+    line_items = relationship("OrderLine", backref='order')
