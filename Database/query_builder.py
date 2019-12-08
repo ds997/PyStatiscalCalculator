@@ -27,3 +27,13 @@ result = session.query(create_model.Order).all()
 for row in result:
     print("ID: ", row.id, " Date Placed:", row.date_placed, " Customer Id:", row.customer_id)
 print("===========================")
+
+print("=========SQL Query for Customer=========")
+print(session.query(create_model.Customer))
+print("===========================")
+
+print("=========count()=========")
+print(session.query(create_model.Customer).count())  # get the total number of records in the customers table
+print(session.query(create_model.Item).count())  # get the total number of records in the items table
+print(session.query(create_model.Order).count())  # get the total number of records in the orders table
+print("===========================")
