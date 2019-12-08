@@ -94,3 +94,52 @@ for row in result:
     print("Name: ", row.first_name, " ", row.last_name, " Address:", row.address, " Email:", row.email)
 print("===========================")
 print("\n")
+
+print("=========filter() with NOT, NULL, IN, BETWEEN=========")
+result = session.query(create_model.Order).filter(create_model.Order.date_placed == None).all()
+print("\n~~All Orders with Date Shipped as None:~~")
+if result is not None:
+    for row in result:
+        print("ID: ", row.id, " Date Placed:", row.date_placed, " Customer Id:", row.customer_id)
+else:
+    print("NO RESULT")
+
+result = session.query(create_model.Order).filter(create_model.Order.date_placed != None).all()
+print("\n~~All Orders with Date Shipped Not as None:~~")
+if result is not None:
+    for row in result:
+        print("ID: ", row.id, " Date Placed:", row.date_placed, " Customer Id:", row.customer_id)
+else:
+    print("NO RESULT")
+
+result = session.query(create_model.Item).filter(create_model.Item.cost_price.between(10, 50)).all()
+print("\n~~All Items whose cost price is between 10 and 50:~~")
+for row in result:
+    print("Name: ", row.name, " Cost Price:", row.cost_price, " Selling Price:", row.selling_price, " Quantity:",
+          row.quantity)
+
+result = session.query(create_model.Item).filter(create_model.Item.cost_price.between(10, 50)).all()
+print("\n~~All Items whose cost price is not between 10 and 50:~~")
+for row in result:
+    print("Name: ", row.name, " Cost Price:", row.cost_price, " Selling Price:", row.selling_price, " Quantity:",
+          row.quantity)
+
+result = session.query(create_model.Item).filter(create_model.Item.name.like("%r")).all()
+print("\n~~All Items whose name ends with r:~~")
+for row in result:
+    print("Name: ", row.name, " Cost Price:", row.cost_price, " Selling Price:", row.selling_price, " Quantity:",
+          row.quantity)
+
+result = session.query(create_model.Item).filter(create_model.Item.name.like("w%")).all()
+print("\n~~All Items whose name starts with w:~~")
+for row in result:
+    print("Name: ", row.name, " Cost Price:", row.cost_price, " Selling Price:", row.selling_price, " Quantity:",
+          row.quantity)
+print("===========================")
+
+print("=========limit()=========")
+result = session.query(create_model.Customer).limit(2).all()
+print("~~Printing all customers but limiting to 2:~~")
+for row in result:
+    print("Name: ", row.first_name, " ", row.last_name, " Address:", row.address, " Email:", row.email)
+print("===========================")
