@@ -12,3 +12,11 @@ result = session.query(create_model.Customer).all()
 for row in result:
     print("Name: ", row.first_name, " ", row.last_name, " Address:", row.address, " Email:", row.email)
 print("===========================")
+
+print("=========Item=========")
+# prints all the records of  the Item table
+result = session.query(create_model.Item).all()
+for row in result:
+    print("Name: ", row.name, " Cost Price:", row.cost_price, " Selling Price:", row.selling_price, " Quantity:",
+          row.quantity)
+print("===========================")
